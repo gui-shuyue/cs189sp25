@@ -1,0 +1,113 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\title{hw2}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{}
+
+\section{Probability Potpourri}
+\subsection{}
+
+\begin{align*}
+x^T{\Sigma}x&=x^TE\left[\left(Z-{\mu}\right)\left(Z-{\mu}\right)^T\right]x \\
+&=E\left[x^T\left(Z-{\mu}\right)\left(Z-{\mu}\right)^Tx\right] \\
+&=E\left[\left[(Z-{\mu}^T)x\right]^T\left[(Z-{\mu})^Tx\right]\right] \\
+&=E\left[||(Z-{\mu})^Tx||^2\right] \\
+&\ {\ge}0
+\end{align*}
+\\
+
+\subsection{}
+Define:\\
+$$H:hit$$
+$$W:windy$$
+Given:
+$$P(H|W)=0.4$$
+$$P(H|\overline{W})=0.7$$
+$$p(W)=0.3$$
+
+(i)\\
+$$P(H|W)=0.4$$
+
+(ii)\\
+$$P(H)=P(W)P(H|W)+P(\overline{W})P(H|\overline{W})$$
+
+(iii)\\
+$$2P(H)(1-p(H))$$
+
+(iv)\\
+$$
+P(\overline{W}|\overline{H})=\frac{P(\overline{W})P(\overline{H}|\overline{W})}{P(W)P(\overline{H}|W)+P(\overline{W})P(\overline{H}|\overline{W})}
+$$
+
+\subsection{}
+$$E[score]=4\int^{\frac{1}{\sqrt{3}}}_0{f(x)dx}+3\int^1_{\frac{1}{\sqrt{3}}}{f(x)dx}+2\int^{\sqrt{3}}_1{}f(x)dx$$
+
+\subsection{}
+(i)\\
+$$P(X=1)=p,\ P(X=0)=1-p, p\in(0,1)$$
+$$H(X)=-plnp-(1-p)ln(1-p)$$
+$$\frac{d^2}{dp^2}H(X)\le0$$
+So H(X) is concave in p.
+
+(ii)\\
+设$p(x_i)=p_i$，满足约束：
+$$\sum_{i=1}^{n}{p_i}=1, p_i\ge0$$
+$$H(X)=-\sum_{i=1}^{n}{p_ilnp_i}$$
+Lagrange multipliers:\\
+Define lagrange function:
+$\mathcal{L}=-\sum_{i=1}^{n}{p_ilnp_i}=\lambda\left(\sum_{i=1}^n{pi}-1\right)$
+
+$$\frac{\partial\mathcal{L}}{\partial{p_i}}=-lnp_i-1+\lambda$$
+$$-lnp_i-1+\lambda\Rightarrow{p_i=e^{\lambda-1}}$$
+
+$$\frac{\partial\mathcal{L}}{\partial\lambda}=\sum_{i=1}^{n}{p_i}-1=0$$
+代入$p_i=e^{\lambda-1}$:
+$$p_i=1/n$$
+
+且$H(X)$是凹函数，故$p_i=1/n$为最大值
+$$H_{max}(X)=lnn$$
+
+\section{Linear Algebra Review}
+(a)\\
+
+$
+\left[
+\begin{matrix}
+I_n & 0 \\
+0 & AB\\
+\end{matrix}
+\right]
+\Rightarrow{ }
+\left[
+\begin{matrix}
+I_n & 0 \\
+A & AB\\
+\end{matrix}
+\right]
+\Rightarrow{ }
+\left[
+\begin{matrix}
+I_n & -B \\
+A & 0\\
+\end{matrix}
+\right]
+\Rightarrow{ }
+\left[
+\begin{matrix}
+B & I_n \\
+0 & A\\
+\end{matrix}
+\right]
+$
+
+
+\end{document}
